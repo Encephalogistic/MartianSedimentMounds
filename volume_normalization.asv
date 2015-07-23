@@ -1,0 +1,35 @@
+vdistc = struct('vd',{[]});
+far = 0;
+
+for i = 1:numfiles
+    i
+    mdsort = sort(closest(i).c);
+    
+    vdistc(i).vd(1) = 0;
+    far = max(far, ceil(max(closest(i).c)));
+        
+    for rd = 2:ceil(max(closest(i).c))
+        temp1 = 0;
+        while mdsort(mi)<rd
+            temp1 = temp1 + mdsort(mi);
+            mi = mi + 1;
+        end
+        mdistc(i).md(rd) = mdistc(i).md(rd-1)+temp1;
+        ttemp1 = ttemp1 + temp1;
+                
+        temp2 = 0;
+        while cdsort(ci)<rd
+            temp2 = temp2 + cdsort(ci);
+            ci = ci + 1;
+        end
+        cdistc(i).cd(rd) = cdistc(i).cd(rd-1)+temp2;
+        ttemp2 = ttemp2 + temp2;       
+        
+        if temp2 == 0
+            cudist2(i).c2(rd) = cudist2(i).c2(rd-1);
+        else
+            cudist2(i).c2(rd) = temp1/temp2 + cudist2(i).c2(rd-1);
+        end
+        cudist(i).c(rd) = ttemp1/ttemp2;
+    end
+end
