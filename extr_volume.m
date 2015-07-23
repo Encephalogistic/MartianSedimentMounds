@@ -29,7 +29,3 @@ for i = 1:numfiles
 end
 %% Produce the volume of each mound.  Trapezoidal approximation is preferred.
 %  Horizontal resolution = 300m
-
-
-
-% A small change

@@ -41,10 +41,8 @@ for i = 1:numfiles
     %Generate points to be measured.
     
     gps(i).g = [];
-    
     [p,q] = meshgrid(linspace(r(i).r.XWorldLimits(1),r(i).r.XWorldLimits(2),r(i).r.RasterSize(2)),...
         linspace(r(i).r.YWorldLimits(2),r(i).r.YWorldLimits(1),r(i).r.RasterSize(1)));
-
     gps(i).g = [p(:) q(:)];
     
     i

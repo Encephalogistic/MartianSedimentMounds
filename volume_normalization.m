@@ -13,14 +13,21 @@ for i = 1:numfiles
     for rd = 2:ceil(max(closest(i).c))
         temp1 = 0;
         while mi < length(mdsort) && mdsort(mi,1) < rd
-            temp1 = temp1 + mdsort(mi,2);
+            temp1 = temp1 + max(mdsort(mi,2),0);
             mi = mi+1;
         end
         vdistc(i).vd(rd) = vdistc(i).vd(rd-1)+temp1;
     end
 end
 
+figure
+hold on
 for i = 1:numfiles
-    figure
     plot(vdistc(i).vd ./ max(vdistc(i).vd))
+end
+
+figure
+hold on
+for i = 1:numfiles
+    plot(vdistc(i).vd)
 end
