@@ -442,6 +442,9 @@ for i = 1:numfiles
     
     for nmic = 2:10
         if length(m(i).m)>=nmic
+            moundW = 0;
+            index = 1;
+            
             while moundW == 0
                 if mat(i).cudist2(nmic).c2(index) >= 0.5
                     moundW = index;
