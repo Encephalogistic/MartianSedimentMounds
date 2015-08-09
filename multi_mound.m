@@ -262,9 +262,9 @@ for i = 1:numfiles
         end
     end
 
-    figure
-    hold on;
-    surf(reshape(cclosest(i).cc,size(p)), 'EdgeColor','none');
+    %figure
+    %hold on;
+    %surf(reshape(cclosest(i).cc,size(p)), 'EdgeColor','none');
 end
 
 %% Display naive cdf area plots

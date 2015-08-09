@@ -9,3 +9,6 @@ for i = 1:numfiles
         end
     end
 end
+
+binRange = 1:4:165;
+[binCounts,ind] = histc(wid,binRange);
